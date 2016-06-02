@@ -1,0 +1,72 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 6/1/16 5:16 PM
+Description: Exception initializing level
+
+java.lang.NullPointerException: Exception initializing level
+	at com.mttprvst13.onechunk.world.OneChunkChunkManager.buildSpawn(OneChunkChunkManager.java:50)
+	at com.mttprvst13.onechunk.world.OneChunkChunkManager.findBiomePosition(OneChunkChunkManager.java:42)
+	at net.minecraft.world.WorldServer.createSpawnPosition(WorldServer.java:732)
+	at net.minecraft.world.WorldServer.initialize(WorldServer.java:715)
+	at net.minecraft.world.World.<init>(World.java:260)
+	at net.minecraft.world.WorldServer.<init>(WorldServer.java:97)
+	at net.minecraft.server.integrated.IntegratedServer.loadAllWorlds(IntegratedServer.java:62)
+	at net.minecraft.server.integrated.IntegratedServer.startServer(IntegratedServer.java:92)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:387)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:685)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.mttprvst13.onechunk.world.OneChunkChunkManager.buildSpawn(OneChunkChunkManager.java:50)
+	at com.mttprvst13.onechunk.world.OneChunkChunkManager.findBiomePosition(OneChunkChunkManager.java:42)
+	at net.minecraft.world.WorldServer.createSpawnPosition(WorldServer.java:732)
+	at net.minecraft.world.WorldServer.initialize(WorldServer.java:715)
+
+-- Affected level --
+Details:
+	Level name: Dev 019
+	All players: 0 total; []
+	Chunk stats: ServerChunkCache: 0 Drop: 0
+	Level seed: -5788650530629434315
+	Level generator: ID 04 - onechunk, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (0,0,0), Chunk: (at 0,0,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 0 game time, 0 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.world.World.<init>(World.java:260)
+	at net.minecraft.world.WorldServer.<init>(WorldServer.java:97)
+	at net.minecraft.server.integrated.IntegratedServer.loadAllWorlds(IntegratedServer.java:62)
+	at net.minecraft.server.integrated.IntegratedServer.startServer(IntegratedServer.java:92)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:387)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:685)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Linux (amd64) version 3.13.0-37-generic
+	Java Version: 1.8.0_91, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 319214424 bytes (304 MB) / 456654848 bytes (435 MB) up to 921174016 bytes (878 MB)
+	JVM Flags: 0 total; 
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 5, tallocated: 67
+	FML: MCP v9.05 FML v7.10.99.99 Minecraft Forge 10.13.4.1558 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAA	FML{7.10.99.99} [Forge Mod Loader] (forgeBin-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAA	Forge{10.13.4.1558} [Minecraft Forge] (forgeBin-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAA	onechunk{1.0} [One Chunk Companion Mod] (onechunk-0.1.jar) 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 8; []
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
