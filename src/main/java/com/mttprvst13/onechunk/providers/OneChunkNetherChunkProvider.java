@@ -1,35 +1,44 @@
-package com.mttprvst13.onechunk.world;
+package com.mttprvst13.onechunk.providers;
 
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.ChunkProviderGenerate;
+import net.minecraft.world.gen.ChunkProviderHell;
+import net.minecraft.world.gen.MapGenBase;
 
-public class OneChunkChunkProvider extends ChunkProviderGenerate
+import java.lang.reflect.Field;
+
+public class OneChunkNetherChunkProvider extends ChunkProviderHell
 {
 
     private World world;
+    private Field genWorldF;
 
-    public OneChunkChunkProvider(World world)
-    {
-        super(world, world.getSeed(), false);
+    public OneChunkNetherChunkProvider(World world, long seed) {
+        super(world, seed);
         this.world = world;
+        genWorldF = ReflectionHelper.findField(MapGenBase.class, "field_75039_c", "worldObj");
+        genWorldF.setAccessible(true);
     }
 
-    @Override public Chunk loadChunk(int x, int z){ return this.provideChunk(x, z); }
-    @Override public void populate(IChunkProvider par1IChunkProvider, int par2, int par3){
-        super.populate(par1IChunkProvider, par2, par3);
+    @Override public Chunk loadChunk(int x, int z) { return provideChunk(x, z); }
+
+    @Override
+    public void populate(IChunkProvider provider, int x, int z)
+    {
+        super.populate(provider, x, z);
     }
 
-    @Override public Chunk provideChunk(int x, int z)
+    @Override
+    public Chunk provideChunk(int x, int z)
     {
         if(x != 0 || z != 0)
             return voidChunk(x, z);
         else
-            return generateChunk(x, z);
-        //return voidChunk(x, z);
+            return super.provideChunk(x, z);
     }
 
     private Chunk voidChunk(int x, int z){
@@ -49,9 +58,4 @@ public class OneChunkChunkProvider extends ChunkProviderGenerate
     {
         return super.provideChunk(x, z);
     }
-
-    public String toString(){
-        return "OneChunkChunkProvider<World:" + world.getWorldInfo().getWorldName() + ">";
-    }
-
 }

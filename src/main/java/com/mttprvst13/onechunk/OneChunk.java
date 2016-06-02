@@ -1,5 +1,6 @@
 package com.mttprvst13.onechunk;
 
+import com.mttprvst13.onechunk.providers.OneChunkNetherProvider;
 import com.mttprvst13.onechunk.providers.OneChunkSurfaceProvider;
 import com.mttprvst13.onechunk.world.OneChunkWorldType;
 import cpw.mods.fml.common.FMLLog;
@@ -40,6 +41,7 @@ public class OneChunk
         worldType = new OneChunkWorldType();
         //GameRegistry.registerWorldGenerator(gen, 0);
         Hashtable<Integer, Class<? extends WorldProvider>> providers = ReflectionHelper.getPrivateValue(DimensionManager.class, null, "providers");
+        providers.put(-1, OneChunkNetherProvider.class);
         providers.put(0, OneChunkSurfaceProvider.class);
     }
 

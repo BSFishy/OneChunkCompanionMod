@@ -1,5 +1,6 @@
 package com.mttprvst13.onechunk.world;
 
+import com.mttprvst13.onechunk.providers.OneChunkSurfaceChunkProvider;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.WorldChunkManager;
@@ -9,7 +10,7 @@ public class OneChunkWorldType extends WorldType
 {
 
     private OneChunkChunkManager manager;
-    private OneChunkChunkProvider provider;
+    private OneChunkSurfaceChunkProvider provider;
 
     public OneChunkWorldType()
     {
@@ -21,7 +22,7 @@ public class OneChunkWorldType extends WorldType
     {
         if(manager == null && provider == null)
         {
-            provider = new OneChunkChunkProvider(world);
+            provider = new OneChunkSurfaceChunkProvider(world);
             manager = new OneChunkChunkManager(world, provider);
         }
         else if(manager == null)
@@ -37,7 +38,7 @@ public class OneChunkWorldType extends WorldType
     {
         if(provider == null)
         {
-            provider = new OneChunkChunkProvider(world);
+            provider = new OneChunkSurfaceChunkProvider(world);
             manager = new OneChunkChunkManager(world, provider);
         }
         else if(manager == null)

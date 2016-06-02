@@ -1,7 +1,6 @@
 package com.mttprvst13.onechunk.providers;
 
 import com.mttprvst13.onechunk.world.OneChunkChunkManager;
-import com.mttprvst13.onechunk.world.OneChunkChunkProvider;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.WorldProviderSurface;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -9,14 +8,14 @@ import net.minecraft.world.chunk.IChunkProvider;
 public class OneChunkSurfaceProvider extends WorldProviderSurface
 {
 
-    private OneChunkChunkProvider provider;
+    private OneChunkSurfaceChunkProvider provider;
 
     public OneChunkSurfaceProvider()
     {
 
     }
 
-    public OneChunkSurfaceProvider(OneChunkChunkProvider pro)
+    public OneChunkSurfaceProvider(OneChunkSurfaceChunkProvider pro)
     {
         provider = pro;
     }
@@ -49,7 +48,7 @@ public class OneChunkSurfaceProvider extends WorldProviderSurface
     public IChunkProvider createChunkGenerator()
     {
         //return provider;
-        return new OneChunkChunkProvider(worldObj);
+        return new OneChunkSurfaceChunkProvider(worldObj);
     }
 
 }

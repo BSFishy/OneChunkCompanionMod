@@ -2,6 +2,7 @@ package com.mttprvst13.onechunk.world;
 
 //@SuppressWarnings("importnotfound")
 
+import com.mttprvst13.onechunk.providers.OneChunkSurfaceChunkProvider;
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
@@ -13,15 +14,15 @@ import java.util.Random;
 public class OneChunkChunkManager extends WorldChunkManager
 {
     private World world;
-    private OneChunkChunkProvider provider;
+    private OneChunkSurfaceChunkProvider provider;
 
     public OneChunkChunkManager(World world)
     {
         this.world = world;
-        provider = new OneChunkChunkProvider(world);
+        provider = new OneChunkSurfaceChunkProvider(world);
     }
 
-    public OneChunkChunkManager(World world, OneChunkChunkProvider pro)
+    public OneChunkChunkManager(World world, OneChunkSurfaceChunkProvider pro)
     {
         super(world);
         this.world = world;
