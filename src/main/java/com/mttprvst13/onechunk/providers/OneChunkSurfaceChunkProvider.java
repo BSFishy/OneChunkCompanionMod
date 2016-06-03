@@ -1,5 +1,6 @@
 package com.mttprvst13.onechunk.providers;
 
+import com.mttprvst13.onechunk.OneChunk;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -25,11 +26,15 @@ public class OneChunkSurfaceChunkProvider extends ChunkProviderGenerate
 
     @Override public Chunk provideChunk(int x, int z)
     {
-        if(x != 0 || z != 0)
-            return voidChunk(x, z);
+        if(OneChunk.instance.getOverrideWorld(world))
+        {
+            if (x != 0 || z != 0)
+                return voidChunk(x, z);
+            else
+                return generateChunk(x, z);
+        }
         else
-            return generateChunk(x, z);
-        //return voidChunk(x, z);
+            return super.provideChunk(x, z);
     }
 
     private Chunk voidChunk(int x, int z){
