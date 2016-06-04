@@ -11,7 +11,7 @@ import net.minecraft.world.gen.MapGenBase;
 
 import java.lang.reflect.Field;
 
-public class OneChunkNetherChunkProvider extends ChunkProviderHell
+public class OneChunkNetherChunkProvider extends ChunkProviderHell implements ChunkProvider
 {
 
     private World world;

@@ -3,13 +3,13 @@ package com.mttprvst13.onechunk.providers;
 import com.mttprvst13.onechunk.OneChunk;
 import com.mttprvst13.onechunk.world.OneChunkChunkManager;
 import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.world.WorldProviderSurface;
+import net.minecraft.world.*;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class OneChunkSurfaceProvider extends WorldProviderSurface
 {
 
-    private OneChunkSurfaceChunkProvider provider;
+    public OneChunkSurfaceChunkProvider provider;
 
     public OneChunkSurfaceProvider()
     {
@@ -59,8 +59,10 @@ public class OneChunkSurfaceProvider extends WorldProviderSurface
     @Override
     public IChunkProvider createChunkGenerator()
     {
-        if(OneChunk.instance.getOverrideWorld(worldObj))
-            return new OneChunkSurfaceChunkProvider(worldObj);
+        if(OneChunk.instance.getOverrideWorld(worldObj)) {
+            provider = new OneChunkSurfaceChunkProvider(worldObj);
+            return provider;
+        }
         else
             return terrainType.getChunkGenerator(worldObj, field_82913_c);
     }

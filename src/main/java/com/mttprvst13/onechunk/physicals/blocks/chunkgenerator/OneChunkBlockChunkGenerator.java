@@ -1,4 +1,4 @@
-package com.mttprvst13.onechunk.blocks;
+package com.mttprvst13.onechunk.physicals.blocks.chunkgenerator;
 
 import com.mttprvst13.onechunk.OneChunk;
 import mcjty.lib.container.GenericBlock;

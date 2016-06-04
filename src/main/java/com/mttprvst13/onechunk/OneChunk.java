@@ -42,7 +42,8 @@ public class OneChunk implements ModBase
 
     public static OneChunkWorldType worldType;
     private OneChunkSurfaceProvider surfaceProvider;
-    private Map<String, OneChunkSurfaceProvider> generators = new HashMap();
+    private Map<Integer, WorldProvider> generators = new HashMap();
+    public Hashtable<Integer, Class<? extends WorldProvider>> providers;
 
     Configuration config;
 
@@ -75,6 +76,9 @@ public class OneChunk implements ModBase
             config.save();
         //GameRegistry.registerWorldGenerator(gen, 2);
         //generators.put("onechunk", new OneChunkSurfaceProvider())
+
+        //TODO: Setup generators variable
+        //generators.put(0, worldType.)
     }
 
     @Mod.EventHandler
@@ -83,7 +87,7 @@ public class OneChunk implements ModBase
         FMLLog.info("One Chunk Companion mod Initialized");
         worldType = new OneChunkWorldType();
         //GameRegistry.registerWorldGenerator(gen, 0);
-        Hashtable<Integer, Class<? extends WorldProvider>> providers = ReflectionHelper.getPrivateValue(DimensionManager.class, null, "providers");
+        providers = ReflectionHelper.getPrivateValue(DimensionManager.class, null, "providers");
         providers.put(-1, OneChunkNetherProvider.class);
         providers.put(0, OneChunkSurfaceProvider.class);
     }

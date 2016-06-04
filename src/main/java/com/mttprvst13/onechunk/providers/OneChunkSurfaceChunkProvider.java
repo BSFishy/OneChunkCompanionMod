@@ -8,7 +8,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
 
-public class OneChunkSurfaceChunkProvider extends ChunkProviderGenerate
+public class OneChunkSurfaceChunkProvider extends ChunkProviderGenerate implements ChunkProvider
 {
 
     private World world;

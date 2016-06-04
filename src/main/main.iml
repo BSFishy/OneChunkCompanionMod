@@ -10,5 +10,6 @@
     <orderEntry type="library" name="deobfBinJar" level="project" />
     <orderEntry type="library" name="mcjtylib" level="project" />
     <orderEntry type="library" name="CoFHCore" level="project" />
+    <orderEntry type="library" name="Librarys" level="project" />
   </component>
 </module>

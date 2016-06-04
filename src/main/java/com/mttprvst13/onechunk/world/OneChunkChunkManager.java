@@ -14,7 +14,7 @@ import java.util.Random;
 public class OneChunkChunkManager extends WorldChunkManager
 {
     private World world;
-    private OneChunkSurfaceChunkProvider provider;
+    public OneChunkSurfaceChunkProvider provider;
 
     public OneChunkChunkManager(World world)
     {
