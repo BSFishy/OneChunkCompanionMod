@@ -1,14 +1,16 @@
 package com.mttprvst13.onechunk;
 
+import com.mttprvst13.onechunk.physicals.PhysicalRegistry;
+import com.mttprvst13.onechunk.providers.ChunkProvider;
 import com.mttprvst13.onechunk.providers.OneChunkNetherProvider;
 import com.mttprvst13.onechunk.providers.OneChunkSurfaceProvider;
 import com.mttprvst13.onechunk.world.OneChunkWorldType;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import cpw.mods.fml.common.Mod.Instance;
 import mcjty.lib.base.ModBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -42,7 +44,7 @@ public class OneChunk implements ModBase
 
     public static OneChunkWorldType worldType;
     private OneChunkSurfaceProvider surfaceProvider;
-    private Map<Integer, WorldProvider> generators = new HashMap();
+    private Map<Integer, ChunkProvider> generators = new HashMap();
     public Hashtable<Integer, Class<? extends WorldProvider>> providers;
 
     Configuration config;
@@ -53,6 +55,8 @@ public class OneChunk implements ModBase
     private static int modGuiIndex = 0;
 
     public static final int GUI_CHUNK_GENERATOR = modGuiIndex++;
+
+    private PhysicalRegistry physicals;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -79,6 +83,8 @@ public class OneChunk implements ModBase
 
         //TODO: Setup generators variable
         //generators.put(0, worldType.)
+
+        physicals.register();
     }
 
     @Mod.EventHandler
@@ -105,7 +111,7 @@ public class OneChunk implements ModBase
         return isOneChunkWorld || world.getWorldInfo().getTerrainType() == worldType;
     }
 
-    public boolean getAllowNewChunks(World world)
+    public boolean getAllowNewChunks()
     {
         return allowNewChunksGenerate;
     }

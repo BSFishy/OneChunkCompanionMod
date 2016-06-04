@@ -11,5 +11,6 @@
     <orderEntry type="library" name="mcjtylib" level="project" />
     <orderEntry type="library" name="CoFHCore" level="project" />
     <orderEntry type="library" name="Librarys" level="project" />
+    <orderEntry type="library" name="netty" level="project" />
   </component>
 </module>
